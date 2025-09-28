@@ -1,0 +1,257 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Moodify Design System - Mood-based color palettes and gradients */
+
+@layer base {
+  :root {
+    /* Default/Neutral Theme */
+    --background: 220 14% 7%;
+    --foreground: 210 40% 98%;
+
+    --card: 222 14% 10%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 222 14% 10%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 210 40% 98%;
+    --primary-foreground: 222 14% 7%;
+
+    --secondary: 222 20% 15%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 222 20% 15%;
+    --muted-foreground: 215 20% 65%;
+
+    --accent: 222 20% 15%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 222 20% 20%;
+    --input: 222 20% 15%;
+    --ring: 210 40% 98%;
+
+    --radius: 0.75rem;
+
+    /* Mood-based gradients */
+    --gradient-happy: linear-gradient(135deg, hsl(39 100% 60%), hsl(45 100% 70%));
+    --gradient-sad: linear-gradient(135deg, hsl(230 70% 40%), hsl(260 80% 50%));
+    --gradient-relaxed: linear-gradient(135deg, hsl(160 50% 60%), hsl(180 60% 65%));
+    --gradient-energetic: linear-gradient(135deg, hsl(340 80% 60%), hsl(0 85% 65%));
+    --gradient-focused: linear-gradient(135deg, hsl(220 10% 40%), hsl(210 15% 60%));
+
+    /* Mood colors */
+    --happy-primary: 39 100% 60%;
+    --happy-secondary: 45 100% 70%;
+    --sad-primary: 230 70% 40%;
+    --sad-secondary: 260 80% 50%;
+    --relaxed-primary: 160 50% 60%;
+    --relaxed-secondary: 180 60% 65%;
+    --energetic-primary: 340 80% 60%;
+    --energetic-secondary: 0 85% 65%;
+    --focused-primary: 220 10% 40%;
+    --focused-secondary: 210 15% 60%;
+
+    /* Glass morphism */
+    --glass-bg: rgba(255, 255, 255, 0.1);
+    --glass-border: rgba(255, 255, 255, 0.2);
+    --glass-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+
+    /* Animation variables */
+    --transition-smooth: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+
+    --radius: 0.75rem;
+
+    --sidebar-background: 0 0% 98%;
+
+    --sidebar-foreground: 240 5.3% 26.1%;
+
+    --sidebar-primary: 240 5.9% 10%;
+
+    --sidebar-primary-foreground: 0 0% 98%;
+
+    --sidebar-accent: 240 4.8% 95.9%;
+
+    --sidebar-accent-foreground: 240 5.9% 10%;
+
+    --sidebar-border: 220 13% 91%;
+
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 210 40% 98%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 212.7 26.8% 83.9%;
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground overflow-x-hidden;
+    background: var(--background);
+    transition: var(--transition-smooth);
+  }
+}
+
+@layer components {
+  /* Mood background classes with image fallbacks */
+  .mood-happy {
+    background: var(--gradient-happy);
+    background-image: url('../assets/music-background.jpg'), var(--gradient-happy);
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+  }
+  
+  .mood-sad {
+    background: var(--gradient-sad);
+    background-image: url('../assets/music-background.jpg'), var(--gradient-sad);
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+  }
+  
+  .mood-relaxed {
+    background: var(--gradient-relaxed);
+    background-image: url('../assets/music-background.jpg'), var(--gradient-relaxed);
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+  }
+  
+  .mood-energetic {
+    background: var(--gradient-energetic);
+    background-image: url('../assets/music-background.jpg'), var(--gradient-energetic);
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+  }
+  
+  .mood-focused {
+    background: var(--gradient-focused);
+    background-image: url('../assets/music-background.jpg'), var(--gradient-focused);
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+  }
+
+  /* Default background with image and gradient fallback */
+  body {
+    background: linear-gradient(135deg, hsl(220 14% 7%), hsl(222 14% 10%));
+    background-image: url('../assets/music-background.jpg'), linear-gradient(135deg, hsl(220 14% 7%), hsl(222 14% 10%));
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+  }
+
+  /* Glass morphism card */
+  .glass-card {
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    box-shadow: var(--glass-shadow);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+  }
+
+  /* Smooth animations */
+  .animate-fade-in {
+    animation: fadeIn 0.6s ease-out forwards;
+  }
+
+  .animate-slide-up {
+    animation: slideUp 0.5s ease-out forwards;
+  }
+
+  .animate-bounce-in {
+    animation: bounceIn 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55) forwards;
+  }
+}
+
+@layer utilities {
+  .transition-smooth {
+    transition: var(--transition-smooth);
+  }
+  
+  .transition-bounce {
+    transition: var(--transition-bounce);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes bounceIn {
+  from {
+    opacity: 0;
+    transform: scale(0.3);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.05);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
